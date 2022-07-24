@@ -1,0 +1,348 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Simon Hauguel</title>
+        <meta name="robots" content="noindex" />
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <!-- MathJax -->
+        <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="SUMMARY.html"><strong aria-hidden="true">1.</strong> Accueil</a></li><li class="chapter-item expanded "><a href="parsing/introduction.html"><strong aria-hidden="true">2.</strong> Les algorithmes de parsing</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="parsing/introductionthl.html"><strong aria-hidden="true">2.1.</strong> Theorie des langages</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="parsing/thl.html"><strong aria-hidden="true">2.1.1.</strong> Vocabulaire et préliminaires</a></li></ol></li><li class="chapter-item expanded "><a href="parsing/appendix.html"><strong aria-hidden="true">2.2.</strong> Appendix</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Simon Hauguel</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="accueil"><a class="header" href="#accueil">Accueil</a></h1>
+<ul>
+<li><a href="./SUMMARY.html">Accueil</a></li>
+<li><a href="./parsing/introduction.html">Les algorithmes de parsing</a>
+<ul>
+<li><a href="./parsing/introductionthl.html">Theorie des langages</a>
+<ul>
+<li><a href="./parsing/thl.html">Vocabulaire et préliminaires</a></li>
+</ul>
+</li>
+<li><a href="./parsing/appendix.html">Appendix</a></li>
+</ul>
+</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="introduction"><a class="header" href="#introduction">Introduction</a></h1>
+<p>Cette introduction aux algorithmes de <a href="parsing/introduction.html#parser">parsing</a> traite le problème du point de vue d'un informaticien pour des informaticiens. <a href="parsing/introduction.html#parser">Parser</a> est un terme large, qui s'applique dans d'autres domaines que l'informatique, mais nous n'allons pas nous y attarder.</p>
+<p>Les parsers sont des outils très pratiques pour écrire des compilateurs ou interpréteurs, ils se placent dans la phase dit du <code>front-end</code>. Les informaticiens les plus habiles pourront aisément écrire un parser, mais il est probable qu'il soit inefficace, ou fragile. C'est pourquoi nous voulons donner des algorithmes robustes, non-naïf, et efficients.</p>
+<p>Pour pleinement comprendre, et appréhender ce sujet d'étude, il est préférable de faire un détour vers la <a href="parsing/TODO">théorie des langages</a>. Nous passerons en revue les <a href="parsing/TODO">langages rationnels</a> et <a href="parsing/TODO">automates déterministes</a> puis les <a href="parsing/TODO">langages algébriques</a>.</p>
+<p>Finalement, nous nous attaquerons tardivement mais bien préparés, au sujet principal de ce tutoriel que sont les parsers. Nous finirons par un exemple concret, implémenté en <a href="https://leanprover.github.io/">Lean</a>.</p>
+<h2 id="parser"><a class="header" href="#parser">Parser</a></h2>
+<p>Actuellement nous manquons d'outils pour définir ce qu'est un parser. Mais nous pouvons a minima donner une intuition de son utilité. </p>
+<blockquote>
+<p>Un parser, ou analyseur syntaxique en français, est un algorithme qui consomme un flux de <a href="parsing/TODO">symboles</a>, et génère  <em>dynamiquement</em> <em>une</em> structure de données associée.</p>
+</blockquote>
+<p>Dans cette définition, il est important de noter 2 choses : </p>
+<ul>
+<li>le parser génère <strong><em>une</em></strong> structure de données associée.</li>
+<li>La structure est générée <strong><em>dynamiquement</em></strong>.</li>
+</ul>
+<p>Pour le premier point, il est notable de comprendre que notre parseur ne doit pas générer plusieurs structures de données, et ne doit pas choisir entre plusieurs structures. Mais doit nous fournir un unique résultat. Par exemple si nous voulons parser l'expression arithmétique suivante <code>&quot;a + b + c&quot;</code>, que devons-nous obtenir ? <code>a + (b + c)</code> ou <code>(a + b) + c</code> ? Évidemment, cela n'a pas d'importance au point de vue sémantique, mais faisons abstraction de l'associativité de <code>+</code>, ce n'est pas le sujet. Nous n'avons pas envie d'obtenir et de manipuler ces deux formes. Ce que nous souhaitons en revanche c'est obtenir une unique structure, celle qu'il nous semble la plus adaptée.</p>
+<p>Pour le second point, la structure est générée non pas après avoir consommé le flux, mais pendant qu'il le consomme. Ne nous attardons pas sur ce point dans l'immédiat, mais cette précision nous sera utile quand nous allons parler des parsers LL est LR. Il est donc important de le garder en tête pour le reste de cette introduction.</p>
+<p>Il est courant que la structure résultante soit un <code>arbre</code>, ce que l'on appelle un <code>ast</code>.</p>
+<h2 id="lexer"><a class="header" href="#lexer">Lexer</a></h2>
+<p>Il est important de parler des <a href="parsing/introduction.html#lexer">lexers</a>. Un <a href="parsing/introduction.html#lexer">lexer</a>, a l'instar des parsers, consomme un flux de symboles, mais retourne un flux de lexemes. Un lexeme n'est rien de plus qu'un symbole doté d'un tag, cela enrichit notre flux d'entrée, et peut simplifier le travail du parser.
+Voici un exemple :</p>
+<pre><code class="language-c">while (true) { a; }
+</code></pre>
+<p>La résultante de l'étape de lexing depuis ce flux d'entrée (en langage C) sera par exemple :</p>
+<pre><code class="language-c">[RESERVEDWHILE, OPENPARENS, IDENTIFIER&lt;&quot;true&quot;&gt;, OPENBRACKET, IDENTIFIER&lt;&quot;a&quot;&gt;, SEMICOLON, CLOSEBRACKET]
+</code></pre>
+<p>À noter que dans notre exemple, nous perdons des informations : l'emplacement des lexemes dans le flux original, les caractères &quot;inutiles&quot; (espace, tabulation, retour à la ligne).</p>
+<p>Nous faisons généralement cette passe avant le <a href="parsing/introduction.html#parser">parsing</a>.
+Même s'il est possible de penser qu'il est toujours une bonne chose de faire cette analyse, on dit difficilement non à une couche supplémentaire d'abstraction. Mais en réalité, il nous faut noter que la passe du lexer n'est en aucun cas une necessité, et peut, dans certains cas, complexifier inutilement le code.</p>
+<p>À noter que suivant notre &quot;définition&quot; de <a href="parsing/./introduction.html#parser">parser</a>, un lexer peut totalement être vu comme une étape de <a href="parsing/./introduction.html#parser">parsing</a>. </p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="introduction-theorie-des-langages"><a class="header" href="#introduction-theorie-des-langages">Introduction Theorie des Langages</a></h1>
+<p>Les langages sont classifiés par la <a href="https://fr.wikipedia.org/wiki/Hi%C3%A9rarchie_de_Chomsky">Hiérarchie de Chomsky</a>. Il y a 4 étages a cette hiérarchie, seuls les langages dit réguliers et algébriques (ou hors-contexte) nous intéresse dans notre cas. Un langage algébrique est un langage rationnel. Dans ce tutoriel, on explicitera ce qu'est un langage rationnel, puis on viendra l'étendre pour en faire un langage algébrique.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="vocabulaire"><a class="header" href="#vocabulaire">Vocabulaire</a></h1>
+<ul>
+<li>On appelle <code>alphabet</code> un ensemble <em>fini</em> de symboles. On notera nos alphabets \(\Sigma\).</li>
+<li>Un <code>mot</code> est une <a href="parsing/./appendix.html#suite-finie">suite finie</a> de symboles \(\in \Sigma\).</li>
+<li>La <code>longueur</code> du mot \(\omega\), est l'entier naturel \(l_{\omega} = |\omega|\).</li>
+<li>Il existe un <code>unique</code> mot \(\epsilon\), tel que \(|\epsilon| = 0\).</li>
+<li>L'ensemble des mots d'un alphabet \(\Sigma\) est \(\Sigma^*\)</li>
+<li>Un <code>langage</code> \(L\) sur \(\Sigma\) est un ensemble de mots de \(\Sigma\).</li>
+</ul>
+<p>Pour le reste de ce chapitre, nos mots seront implicitement des éléments de \(\Sigma^*\), sauf si explicite.</p>
+<blockquote>
+<p>Les symboles n'ont pas besoin d'avoir une définition mathématique, on leur demande simplement de pouvoir les distinguer. Le symbole <code>a</code> est le symbole <code>a</code>, mais n'est pas le symbole <code>b</code></p>
+</blockquote>
+<p>Les mots étants des suites finies, nous pouvons ainsi les concaténer. Soit \(v = v_1v_2\cdots v_n\) et \(w = w_1w_2\cdots w_m\), alors \(v\cdot w = v_1v_2\cdots v_nw_1w_2\cdots w_m\).
+On notera \(vw\) pour exprimer \(v\cdot w\).</p>
+<p>Le fait qu'un langage soit simplement un ensemble, nous gardons bien évidemment les opérations communes sur les ensembles.</p>
+<p>Soit \(L_1, L_2\) deux langages sur \(\Sigma\), on a alors :</p>
+<p>$$L_1 + L_2 = L_1 \cup L_2$$
+$$L_1L_2 = L_1\times L_2 = \{vw~|~v \in L_1, w \in L_2\}$$
+$$L_1 \setminus L_2 = \{w~|~w \in L_1, w \notin L_2\}$$
+$$\overline{L_1} = \{w \in \Sigma^* | w \notin L_1\}$$</p>
+<p>Il est important de noter que \((\Sigma^*, \cdot)\) est un <a href="parsing/./appendix.html#monoide">monoïde</a>, avec \(\epsilon\) comme élément <a href="parsing/./appendix.html#monoide">neutre</a>.</p>
+<p>Soit \(L\) un langage, on a 
+$$L^0 = \{\epsilon\}$$
+$$L^{n+1} = LL^n$$
+$$L^* = \bigcup_{i\geq0}{L^i}$$</p>
+<h2 id="exemples"><a class="header" href="#exemples">Exemples</a></h2>
+<p>Soit \(\Sigma = \{a, b\}\), alors \(\Sigma^* = \{\epsilon, a, b, aa, ab, ba, bb, aaa, aab, \cdots\}\)</p>
+<p>Soit \(L_p = \{w \in \Sigma^*~|~l_w~est~pair\}\) et \(L_i = \{w \in \Sigma^*~|~l_w~est~impair\}\), alors
+$$\{L_p, L_i\}~est~une~partition~de~\Sigma^*,~donc,~L_i + L_p = \Sigma^*$$
+$$L_pL_i = L_iL_p = L_i$$
+$$L_pL_p = L_p$$</p>
+<p>Soit \(L_c\), le langage du langage de programmation C, alors</p>
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+    
+int main() { printf(&quot;Hello, World&quot;); return 0; }
+</code></pre>
+<p>est un mot de \(L_c\). </p>
+<p>\(\overline{L_c}\) est le langage des programmes syntaxiquement incorrects en C.</p>
+<h1 id="ordre-sur-les-mots"><a class="header" href="#ordre-sur-les-mots">Ordre sur les mots</a></h1>
+<ul>
+<li>On dit que \(\alpha\) est un <code>préfixe</code> de \(\beta\) si il existe \(\omega\) tel que \(\beta = \alpha\omega\).</li>
+<li>On dit que \(\alpha\) est un <code>suffixe</code> de \(\beta\) si il existe \(\omega\) tel que \(\beta = \omega\alpha\).</li>
+<li>On dit que \(\alpha\) est un <code>facteur</code> de \(\beta\) si il existe \(\omega, \zeta\) tel que \(\beta = \omega\alpha\zeta\)</li>
+</ul>
+<p>On definit \(\alpha \preceq_p \beta\) comme : \(\alpha\) est un préfixe de \(\beta\).
+Notre \(\preceq_p\) est une <a href="parsing/./appendix.html#relation-dordre">relation d'ordre</a>, mais n'est pas <a href="parsing/./appendix.html#relation-dordre">totale</a>.</p>
+<h2 id="exemples-1"><a class="header" href="#exemples-1">Exemples</a></h2>
+<ul>
+<li>\(\alpha \preceq_p \alpha\beta\)</li>
+<li>\(\alpha \preceq_p \alpha\), le préfixe est \(\epsilon\)</li>
+<li>\(\epsilon \preceq_p \alpha\)</li>
+</ul>
+<p>Cependant, avec \(\preceq_p\) il nous est impossible d'ordonner \(\alpha\) et \(\beta\), il nous faut ordonner notre alphabet \(\Sigma\).</p>
+<h2 id="ordre-lexicographique"><a class="header" href="#ordre-lexicographique">Ordre lexicographique</a></h2>
+<p>On définit l'ordre lexicographique \(\alpha \leqslant_{lex} \beta\) comme :</p>
+<p>Soit \(\alpha = p\alpha'\) et \(\beta = p\beta'\) avec \(p\) étant le plus long préfixe commun de \(\alpha\) et de \(\beta\).</p>
+<p>Alors soit</p>
+<ul>
+<li>\(\alpha' = \epsilon\)</li>
+<li>\(\alpha' = \alpha'_0\alpha''\) et \(\beta' = \beta'_0\beta''\) et \(\alpha'_0 &lt; \beta'_0\)</li>
+</ul>
+<blockquote>
+<p>\(&lt;\) est l'ordre naturel sur les symboles induits par l'énumération de \(\Sigma\)</p>
+</blockquote>
+<p>\(\leqslant_{lex}\) reste une <a href="parsing/./appendix.html#relation-dordre">relation d'ordre</a> mais cette fois est <a href="parsing/./appendix.html#relation-dordre">totale</a>.</p>
+<h2 id="exemples-2"><a class="header" href="#exemples-2">Exemples</a></h2>
+<p>Prenons ici \(\Sigma = \) la table ascii, alors</p>
+<ul>
+<li>\(a \leqslant_{lex} b\)</li>
+<li>\(ab \leqslant_{lex} ac\)</li>
+<li>\(xax \leqslant_{lex} xbb\)</li>
+<li>\(aa \leqslant_{lex} b\)</li>
+</ul>
+<p>Le problème de cet ordre est qu'il existe des mots qui sont précèdes par une infinité d'autres mots.
+Pour \(\Sigma = \{0, 1\}\), alors \(0 \leqslant_{lex} 00 \leqslant_{lex} 000 \leqslant_{lex} \cdots\) sans jamais atteindre \(1\). Nous avons comme un sentiment que quelque chose manque. C'est pourquoi nous allons introduire un autre ordre, l'ordre alphabétique.</p>
+<h2 id="ordre-alphabétique"><a class="header" href="#ordre-alphabétique">Ordre Alphabétique</a></h2>
+<p>On définit l'ordre alphabétique \(\alpha \leqslant_{alp} \beta\) comme :</p>
+<p>\(l_{\alpha} &lt; l_{\beta}\) ou \(\alpha \leqslant_{lex} \beta\).</p>
+<p>Pour toujours \(\Sigma = {0, 1}\), alors \(0 \leqslant_{alp} 1 \leqslant_{alp} 00 \leqslant_{alp} 01 \leqslant_{alp} 10 \leqslant_{alp}\cdots \)</p>
+<p>Nous avons maintenant un ordre bien fondé.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="appendix"><a class="header" href="#appendix">Appendix</a></h1>
+<h2 id="suite-finie"><a class="header" href="#suite-finie">Suite Finie</a></h2>
+<p>Une <code>suite finie</code> est un ensemble de termes indexé par des entiers naturels.</p>
+<p>Par exemple : (2, 3, 5, 7) est la suite finie des nombres premiers inférieurs a 10.</p>
+<h2 id="monoïde"><a class="header" href="#monoïde">Monoïde</a></h2>
+<p>Un <code>monoïde</code> est un triplet \((E, \times, \alpha)\) tel que, pour tout \(x, y, z \in E\)</p>
+<ul>
+<li>\(x \times y \in E \iff \times\) est une loi de composition interne.</li>
+<li>\(x \times (y \times z) = (x \times y) \times z \iff \times\) est associative.</li>
+<li>\(x \times \alpha = \alpha \times x = x \iff \epsilon\) est le neutre pour \(\times\)</li>
+</ul>
+<p>Exemples de Monoïde :</p>
+<ul>
+<li>\((\mathbb{N}, +, 0)\)</li>
+<li>\((\mathbb{R}, \times, 1)\)</li>
+<li>\((A^A, \circ, id)\), ou \(A^A\) designe l'ensemble des applications de \(A\) dans \(A\)</li>
+</ul>
+<h2 id="relation-dordre"><a class="header" href="#relation-dordre">Relation D'ordre</a></h2>
+<p>Une <code>relation</code> \(\Delta\) est un ensemble \(\mathbb{E}\) de pair \((a, b)\), tel que si \(a \Delta b\) alors \((a, b) \in \mathbb{E}\).</p>
+<p>Une relation \(\Delta\) sur \(\mathbb{E}\) est dit d'ordre si :</p>
+<ul>
+<li>Pour tout \(x \in \mathbb{E}\), \(x \Delta x\) (réflexivité)</li>
+<li>Pour tout \(x, y \in \mathbb{E}\), si \(x \Delta y\) et \(y \Delta x\) alors \(x = y\) (antisymétrie)</li>
+<li>Pour tout \(x, y, z \in \mathbb{E}\), si \(x \Delta y\) et \(y \Delta z\) alors \(x \Delta z\) (transitivité)</li>
+</ul>
+<p>Exemple de relations d'ordre :</p>
+<ul>
+<li>\(\geq\)</li>
+<li>\(\{(0, 0), (0, 1), (0, 2), (1, 1), (1, 2), (2, 2)\}\)</li>
+</ul>
+<p>On dira que la relation est <code>tolate</code>, si pour tous \(x, y \in \mathbb{E}\), \(x \Delta y\) ou \(y \Delta x\).</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+            </nav>
+
+        </div>
+
+        <!-- Livereload script (if served using the cli tool) -->
+        <script type="text/javascript">
+            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
+            const socket = new WebSocket(wsAddress);
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        <script type="text/javascript">
+        window.addEventListener('load', function() {
+            MathJax.Hub.Register.StartupHook('End', function() {
+                window.setTimeout(window.print, 100);
+            });
+        });
+        </script>
+    </body>
+</html>
